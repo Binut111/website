@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio website for Bernard Juk, Robotics and Automation Engineer." />
+  <title>Bernard Juk | Robotics & Automation Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Bernard Juk homepage">
+        <span class="brand-mark">BJ</span>
+        <span>Bernard Juk</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#timeline">Career</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme">◐</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Robotics • Automation • System Engineering</p>
+          <h1>Building reliable automation systems for smarter manufacturing.</h1>
+          <p class="hero-text">
+            I am a Robotics and Automation Engineer focused on conveyor systems, industrial automation, machine improvement, and data-driven engineering solutions.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+          <div class="hero-stats" aria-label="Professional highlights">
+            <div>
+              <strong>6+</strong>
+              <span>Automation Projects</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Production Mindset</span>
+            </div>
+            <div>
+              <strong>AI</strong>
+              <span>Data Interest</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="profile-orbit" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="profile-core">BJ</div>
+          </div>
+          <div class="status-card">
+            <span class="pulse"></span>
+            Available for automation, robotics, data, and AI engineering opportunities.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="about">
+      <div class="container split-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About Me</p>
+          <h2>Engineer with hands-on production automation experience.</h2>
+        </div>
+        <div class="content-card reveal">
+          <p>
+            I work at the intersection of mechanical systems, automation control, troubleshooting, and continuous improvement. My engineering focus is practical: reduce downtime, improve flow, support production stability, and deliver systems that operators and maintenance teams trust.
+          </p>
+          <p>
+            I am also pursuing System Engineering studies, with growing interest in AI, machine learning, industrial data analytics, and intelligent automation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad muted" id="skills">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Core Strengths</p>
+          <h2>Technical skills built around real factory problems.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="icon">⚙</div>
+            <h3>Automation Engineering</h3>
+            <p>Conveyor systems, machine troubleshooting, equipment improvement, preventive action, and production support.</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="icon">🤖</div>
+            <h3>Robotics & Control</h3>
+            <p>Robotics concepts, actuator systems, sensor integration, control logic, and motion-based process improvement.</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="icon">📊</div>
+            <h3>Data & AI</h3>
+            <p>Python, machine learning, data cleaning, dashboard thinking, predictive models, and engineering analytics.</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="icon">🧩</div>
+            <h3>System Engineering</h3>
+            <p>Requirement analysis, risk thinking, process design, reliability mindset, and structured problem solving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected Projects</p>
+          <h2>Portfolio projects</h2>
+        </div>
+
+        <div class="filter-bar reveal" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="automation">Automation</button>
+          <button class="filter-btn" data-filter="data">Data</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="automation">
+            <div class="project-tag">Automation</div>
+            <h3>Packout Conveyor</h3>
+            <p>Improved material transfer flow and reduced production handling issues through conveyor system enhancement.</p>
+            <button class="text-btn project-open" data-project="Packout Conveyor">View Details</button>
+          </article>
+
+          <article class="project-card reveal" data-category="automation">
+            <div class="project-tag">Automation</div>
+            <h3>Packout Reload</h3>
+            <p>Supported reload process improvement for better line continuity, operator workflow, and equipment stability.</p>
+            <button class="text-btn project-open" data-project="Packout Reload">View Details</button>
+          </article>
+
+          <article class="project-card reveal" data-category="automation">
+            <div class="project-tag">Automation</div>
+            <h3>Resort Reload Dual Input</h3>
+            <p>Upgraded reload system with dual input logic to improve flexibility and reduce bottleneck risk.</p>
+            <button class="text-btn project-open" data-project="Resort Reload Dual Input">View Details</button>
+          </article>
+
+          <article class="project-card reveal" data-category="data">
+            <div class="project-tag">Data</div>
+            <h3>Malaysia Seven City Traffic Analysis</h3>
+            <p>Explored traffic congestion patterns across Malaysian cities using Python, EDA, charts, and insight reporting.</p>
+            <a class="text-btn" href="https://github.com/Binut111/Malaysia-Seven-City-Traffic-Data-Analysis" target="_blank" rel="noreferrer">Open GitHub</a>
+          </article>
+
+          <article class="project-card reveal" data-category="ai">
+            <div class="project-tag">AI</div>
+            <h3>Heart Disease Prediction</h3>
+            <p>Built a machine learning workflow for healthcare prediction using data preprocessing, modeling, and evaluation.</p>
+            <a class="text-btn" href="https://github.com/Binut111/HeartDisease" target="_blank" rel="noreferrer">Open GitHub</a>
+          </article>
+
+          <article class="project-card reveal" data-category="ai">
+            <div class="project-tag">AI</div>
+            <h3>Chronic Kidney Disease Prediction</h3>
+            <p>Designed a classification workflow using EDA, feature handling, model comparison, and performance metrics.</p>
+            <button class="text-btn project-open" data-project="Chronic Kidney Disease Prediction">View Details</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad muted" id="timeline">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Career Path</p>
+          <h2>Engineering journey</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div>
+              <h3>Robotics and Automation Engineering</h3>
+              <p>Built a technical foundation in automation systems, robotics, mechanical design thinking, and control concepts.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div>
+              <h3>Equipment Engineering</h3>
+              <p>Worked on production equipment, machine downtime support, conveyor systems, troubleshooting, and line improvement.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div>
+              <h3>Master of System Engineering</h3>
+              <p>Strengthening systems thinking, project structure, optimal control, human factors, and engineering decision-making.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div>
+              <h3>Next Direction</h3>
+              <p>Expanding toward AI agents, industrial data analytics, smart manufacturing, and automation intelligence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="contact">
+      <div class="container contact-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s discuss engineering, automation, or AI projects.</h2>
+          <p class="contact-copy">Replace the placeholders below with your real contact details before publishing.</p>
+          <div class="contact-list">
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+            <a href="https://github.com/Binut111" target="_blank" rel="noreferrer">github.com/Binut111</a>
+            <a href="#">LinkedIn profile link</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Write your message" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Bernard Juk. All rights reserved.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" aria-label="Close project details" data-close="true">×</button>
+      <p class="eyebrow">Project Detail</p>
+      <h2 id="modalTitle">Project Title</h2>
+      <p id="modalText"></p>
+      <ul id="modalList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
