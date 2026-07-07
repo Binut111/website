@@ -127,26 +127,52 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-contactForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const formData = new FormData(contactForm);
-  const name = String(formData.get('name')).trim();
-  const email = String(formData.get('email')).trim();
-  const message = String(formData.get('message')).trim();
+if (contactForm) {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-  if (!name || !email || !message) {
-    formStatus.textContent = 'Please complete all fields.';
-    return;
-  }
+    const formData = new FormData(contactForm);
+    const name = String(formData.get('name')).trim();
+    const email = String(formData.get('email')).trim();
+    const message = String(formData.get('message')).trim();
+    const submitButton = contactForm.querySelector('button[type="submit"]');
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    formStatus.textContent = 'Please enter a valid email address.';
-    return;
-  }
+    if (!name || !email || !message) {
+      formStatus.textContent = 'Please complete all fields.';
+      return;
+    }
 
-  formStatus.textContent = 'Message ready. Connect this form to Formspree, Netlify Forms, or your backend to receive messages.';
-  contactForm.reset();
-});
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      formStatus.textContent = 'Please enter a valid email address.';
+      return;
+    }
 
+    formStatus.textContent = 'Sending message...';
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = 'Message sent successfully.';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = 'Message failed. Please check the form and try again.';
+      }
+    } catch (error) {
+      formStatus.textContent = 'Network error. Please try again later.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Message';
+    }
+  });
+}
 document.querySelector('#year').textContent = new Date().getFullYear();
