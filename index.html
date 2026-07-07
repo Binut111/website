@@ -240,21 +240,26 @@
           </div>
         </div>
 
-<!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/xeebwjap"
-  method="POST"
->
+<form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xeebwjap" method="POST" novalidate>
   <label>
-    Your email:
-    <input type="email" name="email">
+    Name
+    <input type="text" name="name" placeholder="Your name" required />
   </label>
+
   <label>
-    Your message:
-    <textarea name="message"></textarea>
+    Email
+    <input type="email" name="email" placeholder="your@email.com" required />
   </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+
+  <label>
+    Message
+    <textarea name="message" rows="5" placeholder="Write your message" required></textarea>
+  </label>
+
+  <input type="hidden" name="_subject" value="New portfolio website message" />
+
+  <button class="btn primary" type="submit">Send Message</button>
+  <p class="form-status" id="formStatus" role="status"></p>
 </form>
 
         <form class="contact-form reveal" id="contactForm" novalidate>
