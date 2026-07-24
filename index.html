@@ -135,10 +135,10 @@
         </div>
 
         <div class="filter-bar reveal" aria-label="Project filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="automation">Automation</button>
-          <button class="filter-btn" data-filter="data">Data</button>
-          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn project-filter-btn active" data-project-filter="all">All</button>
+          <button class="filter-btn project-filter-btn" data-project-filter="automation">Automation</button>
+          <button class="filter-btn project-filter-btn" data-project-filter="data">Data</button>
+          <button class="filter-btn project-filter-btn" data-project-filter="ai">AI</button>
         </div>
 
         <div class="projects-grid">
@@ -194,33 +194,43 @@
           <h2>Engineering journey</h2>
         </div>
 
+        <div class="filter-bar timeline-filter-bar reveal" aria-label="Career filters">
+          <button class="filter-btn timeline-filter-btn active" data-timeline-filter="all">All</button>
+          <button class="filter-btn timeline-filter-btn" data-timeline-filter="education">Education Background</button>
+          <button class="filter-btn timeline-filter-btn" data-timeline-filter="experience">Professional Experience</button>
+        </div>
+
         <div class="timeline">
-          <div class="timeline-item reveal">
+          <div class="timeline-item reveal" data-timeline-category="education">
             <span class="timeline-dot"></span>
             <div>
-              <h3>Robotics and Automation Engineering</h3>
+              <span class="timeline-label">Education Background</span>
+              <h3>Bachelor Degree in Robotics and Automation Engineering</h3>
               <p>Built a technical foundation in automation systems, robotics, mechanical design thinking, and control concepts.</p>
             </div>
           </div>
-          <div class="timeline-item reveal">
+          <div class="timeline-item reveal" data-timeline-category="education">
             <span class="timeline-dot"></span>
             <div>
-              <h3>Equipment Engineering</h3>
-              <p>Worked on production equipment, machine downtime support, conveyor systems, troubleshooting, and line improvement.</p>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div>
+              <span class="timeline-label">Education Background</span>
               <h3>Master of System Engineering</h3>
               <p>Strengthening systems thinking, project structure, optimal control, human factors, and engineering decision-making.</p>
             </div>
           </div>
-          <div class="timeline-item reveal">
+          <div class="timeline-item reveal" data-timeline-category="experience">
             <span class="timeline-dot"></span>
             <div>
-              <h3>Next Direction</h3>
-              <p>Expanding toward AI agents, industrial data analytics, smart manufacturing, and automation intelligence.</p>
+              <span class="timeline-label">Professional Experience</span>
+              <h3>Equipment Engineering</h3>
+              <p>Worked on production equipment, machine downtime support, conveyor systems, troubleshooting, and line improvement.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" data-timeline-category="experience">
+            <span class="timeline-dot"></span>
+            <div>
+              <span class="timeline-label">Professional Experience</span>
+              <h3>Automation and Robotics Project Experience</h3>
+              <p>Handled practical automation improvement projects, including Packout Conveyor, Packout Reload, Resort Conveyor, and Resort Reload Dual Input.</p>
             </div>
           </div>
         </div>
@@ -232,35 +242,31 @@
         <div class="section-heading reveal">
           <p class="eyebrow">Contact</p>
           <h2>Let’s discuss engineering, automation, or AI projects.</h2>
-          <p class="contact-copy">Replace the placeholders below with your real contact details before publishing.</p>
+          <p class="contact-copy">Send me a message about engineering, automation, robotics, or AI project opportunities.</p>
           <div class="contact-list">
             <a href="mailto:your.email@example.com">your.email@example.com</a>
             <a href="https://github.com/Binut111" target="_blank" rel="noreferrer">github.com/Binut111</a>
-            <a href="https://my.linkedin.com/in/bernardjuk">LinkedIn profile link</a>
+            <a href="#">LinkedIn profile link</a>
           </div>
         </div>
 
-<form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xeebwjap" method="POST" novalidate>
-  <label>
-    Name
-    <input type="text" name="name" placeholder="Your name" required />
-  </label>
-
-  <label>
-    Email
-    <input type="email" name="email" placeholder="your@email.com" required />
-  </label>
-
-  <label>
-    Message
-    <textarea name="message" rows="5" placeholder="Write your message" required></textarea>
-  </label>
-
-  <input type="hidden" name="_subject" value="New portfolio website message" />
-
-  <button class="btn primary" type="submit">Send Message</button>
-  <p class="form-status" id="formStatus" role="status"></p>
-</form>
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xeebwjap" method="POST" novalidate>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Write your message" required></textarea>
+          </label>
+          <input type="hidden" name="_subject" value="New portfolio website message" />
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
       </div>
     </section>
   </main>
