@@ -2,8 +2,10 @@ const body = document.body;
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('#navLinks');
 const themeToggle = document.querySelector('.theme-toggle');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const projectFilterButtons = document.querySelectorAll('.project-filter-btn');
+const timelineFilterButtons = document.querySelectorAll('.timeline-filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+const timelineItems = document.querySelectorAll('.timeline-item');
 const reveals = document.querySelectorAll('.reveal');
 const modal = document.querySelector('#projectModal');
 const modalTitle = document.querySelector('#modalTitle');
@@ -48,16 +50,19 @@ const projectDetails = {
 };
 
 function closeMenu() {
+  if (!navLinks || !menuToggle) return;
   navLinks.classList.remove('open');
   body.classList.remove('menu-open');
   menuToggle.setAttribute('aria-expanded', 'false');
 }
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  body.classList.toggle('menu-open', isOpen);
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    body.classList.toggle('menu-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
 
 document.querySelectorAll('.nav-links a').forEach((link) => {
   link.addEventListener('click', closeMenu);
@@ -68,22 +73,37 @@ if (savedTheme) {
   document.documentElement.setAttribute('data-theme', savedTheme);
 }
 
-themeToggle.addEventListener('click', () => {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('portfolio-theme', next);
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('portfolio-theme', next);
+  });
+}
 
-filterButtons.forEach((button) => {
+projectFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    filterButtons.forEach((btn) => btn.classList.remove('active'));
+    projectFilterButtons.forEach((btn) => btn.classList.remove('active'));
     button.classList.add('active');
 
-    const filter = button.dataset.filter;
+    const filter = button.dataset.projectFilter;
     projectCards.forEach((card) => {
       const show = filter === 'all' || card.dataset.category === filter;
       card.style.display = show ? 'block' : 'none';
+    });
+  });
+});
+
+timelineFilterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    timelineFilterButtons.forEach((btn) => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const filter = button.dataset.timelineFilter;
+    timelineItems.forEach((item) => {
+      const show = filter === 'all' || item.dataset.timelineCategory === filter;
+      item.style.display = show ? 'grid' : 'none';
     });
   });
 });
@@ -102,7 +122,7 @@ reveals.forEach((element) => observer.observe(element));
 document.querySelectorAll('.project-open').forEach((button) => {
   button.addEventListener('click', () => {
     const detail = projectDetails[button.dataset.project];
-    if (!detail) return;
+    if (!detail || !modal || !modalTitle || !modalText || !modalList) return;
 
     modalTitle.textContent = button.dataset.project;
     modalText.textContent = detail.text;
@@ -112,22 +132,26 @@ document.querySelectorAll('.project-open').forEach((button) => {
   });
 });
 
-modal.addEventListener('click', (event) => {
-  if (event.target.dataset.close === 'true') {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-});
+if (modal) {
+  modal.addEventListener('click', (event) => {
+    if (event.target.dataset.close === 'true') {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
+    if (modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
     closeMenu();
   }
 });
 
-if (contactForm) {
+if (contactForm && formStatus) {
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -149,8 +173,10 @@ if (contactForm) {
     }
 
     formStatus.textContent = 'Sending message...';
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending...';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+    }
 
     try {
       const response = await fetch(contactForm.action, {
@@ -170,9 +196,15 @@ if (contactForm) {
     } catch (error) {
       formStatus.textContent = 'Network error. Please try again later.';
     } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Send Message';
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
     }
   });
 }
-document.querySelector('#year').textContent = new Date().getFullYear();
+
+const yearElement = document.querySelector('#year');
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
